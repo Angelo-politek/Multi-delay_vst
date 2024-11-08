@@ -1,0 +1,16 @@
+CLASSE DELAY
+set_delay_dx_in_ms
+set_delay_sx_in_ms
+set_mode
+set_sync
+set_dry_wet
+set_feedback
+
+
+CLASSE PANNING
+set_pan
+
+CLASSE LFO
+set_rate
+set_amount
+set_parameter

@@ -1,0 +1,796 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "Delay_artefacts/Debug/Standalone/Delay.exe"
+		},
+		{
+			"path" : "Delay_artefacts/Debug/Standalone/Delay.pdb"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"_juce_link_plugin_wrapper",
+			"_juce_configure_plugin_targets",
+			"juce_add_plugin",
+			"target_link_libraries",
+			"_juce_link_libs_from_metadata",
+			"juce_add_module",
+			"find_package",
+			"_juce_add_resources_rc",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"C:/Program Files (x86)/JUCE/lib/cmake/JUCE-7.0.12/JUCEUtils.cmake",
+			"CMakeLists.txt",
+			"C:/Program Files (x86)/JUCE/lib/cmake/JUCE-7.0.12/JUCEModuleSupport.cmake",
+			"C:/Program Files (x86)/JUCE/lib/cmake/JUCE-7.0.12/JUCEConfig.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 2031,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 1472,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 1284,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 1299,
+				"parent" : 3
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 0
+			},
+			{
+				"file" : 3,
+				"parent" : 6
+			},
+			{
+				"command" : 6,
+				"file" : 3,
+				"line" : 113,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 622,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 345,
+				"parent" : 9
+			},
+			{
+				"command" : 6,
+				"file" : 3,
+				"line" : 113,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 622,
+				"parent" : 11
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 345,
+				"parent" : 12
+			},
+			{
+				"command" : 6,
+				"file" : 3,
+				"line" : 113,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 622,
+				"parent" : 14
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 345,
+				"parent" : 15
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 1334,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 796,
+				"parent" : 17
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 1296,
+				"parent" : 3
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu++17 -fvisibility=hidden -fno-keep-inline-dllexport -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-O0"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wpedantic"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wstrict-aliasing"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wuninitialized"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wunused-parameter"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wsign-compare"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wsign-conversion"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wunreachable-code"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wcast-align"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wno-implicit-fallthrough"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wno-maybe-uninitialized"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wno-ignored-qualifiers"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wswitch-enum"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wredundant-decls"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wno-strict-overflow"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wfloat-equal"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wmissing-field-initializers"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Woverloaded-virtual"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wreorder"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-Wzero-as-null-pointer-constant"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 5,
+					"define" : "DEBUG=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_DISPLAY_SPLASH_SCREEN=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_audio_basics=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_audio_devices=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_audio_formats=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_audio_processors=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_audio_utils=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_core=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_data_structures=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_events=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_graphics=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_gui_basics=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_MODULE_AVAILABLE_juce_gui_extra=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_REPORT_APP_USAGE=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_USE_CURL=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_VST3_CAN_REPLACE_VST2=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JUCE_WEB_BROWSER=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AAXCategory=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AAXDisableBypass=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AAXDisableMultiMono=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AAXIdentifier=com.matteosacchetto.delay"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AAXProductId=JucePlugin_PluginCode"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ARACompatibleArchiveIDs=\"\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ARAContentTypes=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ARADocumentArchiveID=\"com.matteosacchetto.delay.aradocumentarchive.1\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ARAFactoryID=\"com.matteosacchetto.delay.arafactory.1.0.0\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ARATransformationFlags=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AUExportPrefix=DelayAU"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AUExportPrefixQuoted=\"DelayAU\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AUMainType='aufx'"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_AUSubType=JucePlugin_PluginCode"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_AAX=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_AU=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_AUv3=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_LV2=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_Standalone=1"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_Unity=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_VST3=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Build_VST=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_CFBundleIdentifier=com.matteosacchetto.delay"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Desc=\"Delay\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_EditorRequiresKeyboardFocus=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Enable_ARA=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_IsMidiEffect=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_IsSynth=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Manufacturer=\"Matteo Sacchetto\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ManufacturerCode=0x4d615361"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ManufacturerEmail=\"\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ManufacturerWebsite=\"\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Name=\"Delay\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_PluginCode=0x445f5f30"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_ProducesMidiOutput=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_VSTCategory=kPlugCategEffect"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_VSTNumMidiInputs=16"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_VSTNumMidiOutputs=16"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_VSTUniqueID=JucePlugin_PluginCode"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Version=1.0.0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_VersionCode=0x10000"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_VersionString=\"1.0.0\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_Vst3Category=\"Fx|Delay\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "JucePlugin_WantsMidiInput=0"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "PLUGIN_NAME=\"Delay\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "_DEBUG=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 19,
+					"path" : "C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/Delay_artefacts/JuceLibraryCode"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/VST3_SDK"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/lv2"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/serd"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/sord"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/sord/src"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/sratom"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/lilv"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_processors/format_types/LV2_SDK/lilv/src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					5
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "Delay::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 18,
+			"id" : "Delay_rc_lib::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Delay"
+	},
+	"id" : "Delay_Standalone::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-mwindows",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "Delay_artefacts\\Debug\\libDelay_SharedCode.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 10,
+				"fragment" : "-ldxgi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-luuid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lwsock32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lwininet",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lversion",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lole32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lws2_32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-loleaut32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-limm32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lcomdlg32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lshlwapi",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "-lrpcrt4",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 16,
+				"fragment" : "-lwinmm",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "Delay_Standalone",
+	"nameOnDisk" : "Delay.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			]
+		},
+		{
+			"name" : "Object Libraries",
+			"sourceIndexes" : 
+			[
+				8
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX_utils.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_ARA.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_Unity.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Program Files (x86)/JUCE/include/JUCE-7.0.12/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 18,
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/Delay_rc_lib.dir/Delay_artefacts/JuceLibraryCode/Delay_resources.rc.obj",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}

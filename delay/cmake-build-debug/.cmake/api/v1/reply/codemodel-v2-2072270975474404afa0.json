@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Delay",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Delay::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Delay-Debug-006a4cf693c40aed01a1.json",
+					"name" : "Delay",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Delay_All::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Delay_All-Debug-9e419459eecbcdadd1cc.json",
+					"name" : "Delay_All",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Delay_Standalone::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Delay_Standalone-Debug-daa605e8d271810d7968.json",
+					"name" : "Delay_Standalone",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Delay_VST3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Delay_VST3-Debug-f834694c4edf73798102.json",
+					"name" : "Delay_VST3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Delay_rc_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Delay_rc_lib-Debug-735a795d2f176d0187c8.json",
+					"name" : "Delay_rc_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "juce_vst3_helper::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-juce_vst3_helper-Debug-f932a594b9d956aba186.json",
+					"name" : "juce_vst3_helper",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug",
+		"source" : "C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

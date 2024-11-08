@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "PingPongDelay",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "PingPongDelay::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PingPongDelay-Debug-bca160882fd00b844713.json",
+					"name" : "PingPongDelay",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "PingPongDelay_All::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PingPongDelay_All-Debug-3f62afdb6b60ca3f4f8e.json",
+					"name" : "PingPongDelay_All",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "PingPongDelay_Standalone::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PingPongDelay_Standalone-Debug-de1105c3883392b6604a.json",
+					"name" : "PingPongDelay_Standalone",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "PingPongDelay_VST3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PingPongDelay_VST3-Debug-895db919607820031d32.json",
+					"name" : "PingPongDelay_VST3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "PingPongDelay_rc_lib::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PingPongDelay_rc_lib-Debug-353781ad98ed1c2b2fa8.json",
+					"name" : "PingPongDelay_rc_lib",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "juce_vst3_helper::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-juce_vst3_helper-Debug-f932a594b9d956aba186.json",
+					"name" : "juce_vst3_helper",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug",
+		"source" : "C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

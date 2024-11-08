@@ -1,0 +1,8 @@
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/PingPongDelay.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/PingPongDelay_All.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/PingPongDelay_Standalone.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/PingPongDelay_rc_lib.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/PingPongDelay_VST3.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/juce_vst3_helper.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/39351/Documents/GitHub/Multi-delay_vst/ping-pong-delay/cmake-build-debug/CMakeFiles/rebuild_cache.dir
