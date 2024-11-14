@@ -7,7 +7,7 @@ class Delay
 {
 private:
     juce::AudioBuffer<float> _delay;
-    int _read_i, _write_i;
+    int _read_i, _write_i_sx, _write_i_dx;
 
     double _sample_rate;
 
@@ -22,7 +22,8 @@ public:
     void process(juce::AudioBuffer<float>& samples);
     void reset();
 
-    void set_delay_in_ms(float delay_in_ms);
+    void set_delay_dx_in_ms(float delay_in_ms);
+    void set_delay_sx_in_ms(float delay_in_ms);
     void set_dry_wet(float value);
     void set_feedback(float feedbakc);
 };
