@@ -3,23 +3,25 @@
 
 //==============================================================================
 AudioPluginAudioProcessor::AudioPluginAudioProcessor() : AudioProcessor(BusesProperties()
-#if !JucePlugin_IsMidiEffect
-#if !JucePlugin_IsSynth
-                                                                            .withInput("Input", juce::AudioChannelSet::stereo(), true)
-#endif
-                                                                            .withOutput("Output", juce::AudioChannelSet::stereo(), true)
-#endif
-                                                                            ),
-                                                         parameters{*this, nullptr, juce::Identifier("parameters"), createParameterLayout()}
+    #if !JucePlugin_IsMidiEffect
+        #if !JucePlugin_IsSynth
+            .withInput("Input", juce::AudioChannelSet::stereo(), true)
+        #endif
+        .withOutput("Output", juce::AudioChannelSet::stereo(), true)
+    #endif
+    ),
+parameters{*this, nullptr, juce::Identifier("parameters"), createParameterLayout()}
 {
-    parameters.addParameterListener("delay", this);
+    parameters.addParameterListener("delay-sx", this);
+    parameters.addParameterListener("delay-dx", this);
     parameters.addParameterListener("feedback", this);
     parameters.addParameterListener("dry-wet", this);
 }
 
 AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
 {
-    parameters.removeParameterListener("delay", this);
+    parameters.removeParameterListener("delay-sx", this);
+    parameters.removeParameterListener("delay-dx", this);
     parameters.removeParameterListener("feedback", this);
     parameters.removeParameterListener("dry-wet", this);
 }
@@ -29,12 +31,20 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
-        "delay", "Delay", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
+        "delay-dx", "Delay Dx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(val) + juce::String(" ms"); },
         [](juce::String str) -> float
         {
             return str.getFloatValue();
         }));
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "delay-sx", "Delay Sx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
+        { return juce::String(val) + juce::String(" ms"); },
+        [](juce::String str) -> float
+        {
+            return str.getFloatValue();
+        }));
+    
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "feedback", "Feedback", juce::NormalisableRange<float>(0.0f, juce::Decibels::decibelsToGain<float>(0.0f), 0.0005f, 0.4f), 0.1f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(juce::Decibels::gainToDecibels(val)) + juce::String(" dB"); },
@@ -57,10 +67,15 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float n
 {
     juce::ignoreUnused(id, newValue);
 
-    if (id == "delay")
+    if (id == "delay-sx")
     {
-        delay.set_delay_in_ms(newValue);
+        delay.set_delay_sx_in_ms(newValue);
     }
+    if (id == "delay-dx")
+    {
+        delay.set_delay_dx_in_ms(newValue);
+    }
+
     else if (id == "feedback")
     {
         delay.set_feedback(newValue);
@@ -149,7 +164,9 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
 
     delay.prepare(sampleRate, samplesPerBlock);
 
-    delay.set_delay_in_ms(*parameters.getRawParameterValue("delay"));
+    delay.set_delay_dx_in_ms(*parameters.getRawParameterValue("delay-dx"));
+    delay.set_delay_sx_in_ms(*parameters.getRawParameterValue("delay-sx"));
+
     delay.set_feedback(*parameters.getRawParameterValue("feedback"));
     delay.set_dry_wet(*parameters.getRawParameterValue("dry-wet") / 100);
 }
