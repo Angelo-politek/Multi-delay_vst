@@ -45,7 +45,8 @@ void Delay::process(juce::AudioBuffer<float> &buffer)
 
         // Write delay
         left_delay[_write_i_sx] = out_left + out_left_delay * _feedback;
-        right_delay[_write_i_dx] = out_right + out_right_delay * _feedback;
+        if (_sync_enable) right_delay[_write_i_sx] = out_right + out_right_delay * _feedback;
+        else right_delay[_write_i_dx] = out_right + out_right_delay * _feedback;
 
         // Clear read positions
         left_delay[_read_i] = 0.f;
@@ -57,13 +58,12 @@ void Delay::set_delay_sx_in_ms(float delay_in_ms)
 {
     int delay_in_samples = juce::jlimit(1, _max_delay, juce::roundToInt(delay_in_ms * _sample_rate / 1000.f));
     _write_i_sx = (_read_i + delay_in_samples) % _max_delay;
-    if (_sync_enable) _write_i_dx = (_read_i + delay_in_samples) % _max_delay;
 }
 
 void Delay::set_delay_dx_in_ms(float delay_in_ms)
 {
     int delay_in_samples = juce::jlimit(1, _max_delay, juce::roundToInt(delay_in_ms * _sample_rate / 1000.f));
-    _write_i_dx = _sync_enable ? _write_i_sx : (_read_i + delay_in_samples) % _max_delay;
+    _write_i_dx = (_read_i + delay_in_samples) % _max_delay;
 }
 
 void Delay::set_feedback(float feedback)

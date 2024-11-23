@@ -35,20 +35,20 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
 
     layout.add(std::make_unique<juce::AudioParameterBool>("sync-enable", "Sync", false));
     layout.add(std::make_unique<juce::AudioParameterFloat>(
-        "delay-dx", "Delay Dx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
-        { return juce::String(val) + juce::String(" ms"); },
-        [](juce::String str) -> float
-        {
-            return str.getFloatValue();
-        }));
-    layout.add(std::make_unique<juce::AudioParameterFloat>(
         "delay-sx", "Delay Sx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(val) + juce::String(" ms"); },
         [](juce::String str) -> float
         {
             return str.getFloatValue();
         }));
-    
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "delay-dx", "Delay Dx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
+        { return juce::String(val) + juce::String(" ms"); },
+        [](juce::String str) -> float
+        {
+            return str.getFloatValue();
+        }));
+
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "feedback", "Feedback", juce::NormalisableRange<float>(0.0f, juce::Decibels::decibelsToGain<float>(0.0f), 0.0005f, 0.4f), 0.1f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(juce::Decibels::gainToDecibels(val)) + juce::String(" dB"); },
