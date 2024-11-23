@@ -15,8 +15,11 @@ private:
     float _dry_wet;
     float _feedback;
 
+
 public:
     Delay();
+
+    bool _sync_enable;
 
     void prepare(double sample_rate, int max_num_samples);
     void process(juce::AudioBuffer<float>& samples);
@@ -25,7 +28,8 @@ public:
     void set_delay_dx_in_ms(float delay_in_ms);
     void set_delay_sx_in_ms(float delay_in_ms);
     void set_dry_wet(float value);
-    void set_feedback(float feedbakc);
+    void set_feedback(float feedback);
+    void enable_sync(bool enable);
 };
 
 #endif // __DELAY_HPP__

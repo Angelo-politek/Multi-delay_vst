@@ -16,6 +16,8 @@ parameters{*this, nullptr, juce::Identifier("parameters"), createParameterLayout
     parameters.addParameterListener("delay-dx", this);
     parameters.addParameterListener("feedback", this);
     parameters.addParameterListener("dry-wet", this);
+    parameters.addParameterListener("sync-enable", this);
+
 }
 
 AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
@@ -24,12 +26,14 @@ AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
     parameters.removeParameterListener("delay-dx", this);
     parameters.removeParameterListener("feedback", this);
     parameters.removeParameterListener("dry-wet", this);
+    parameters.removeParameterListener("sync-enable", this);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::createParameterLayout()
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
 
+    layout.add(std::make_unique<juce::AudioParameterBool>("sync-enable", "Sync", false));
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "delay-dx", "Delay Dx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(val) + juce::String(" ms"); },
@@ -60,6 +64,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
             return val.getIntValue();
         }));
 
+
     return layout;
 }
 
@@ -70,10 +75,17 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float n
     if (id == "delay-sx")
     {
         delay.set_delay_sx_in_ms(newValue);
+        if (delay._sync_enable)delay.set_delay_dx_in_ms(newValue);
     }
     if (id == "delay-dx")
     {
         delay.set_delay_dx_in_ms(newValue);
+        if (delay._sync_enable)delay.set_delay_sx_in_ms(newValue);
+    }
+    
+    else if (id == "sync-enable")
+    {
+        delay.enable_sync(static_cast<int>(newValue));
     }
 
     else if (id == "feedback")
@@ -164,11 +176,16 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
 
     delay.prepare(sampleRate, samplesPerBlock);
 
+    delay.enable_sync(static_cast<int>(*parameters.getRawParameterValue("sync-enable")));
+
     delay.set_delay_dx_in_ms(*parameters.getRawParameterValue("delay-dx"));
     delay.set_delay_sx_in_ms(*parameters.getRawParameterValue("delay-sx"));
 
     delay.set_feedback(*parameters.getRawParameterValue("feedback"));
     delay.set_dry_wet(*parameters.getRawParameterValue("dry-wet") / 100);
+
+    
+
 }
 
 void AudioPluginAudioProcessor::releaseResources()

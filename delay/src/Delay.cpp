@@ -57,12 +57,13 @@ void Delay::set_delay_sx_in_ms(float delay_in_ms)
 {
     int delay_in_samples = juce::jlimit(1, _max_delay, juce::roundToInt(delay_in_ms * _sample_rate / 1000.f));
     _write_i_sx = (_read_i + delay_in_samples) % _max_delay;
+    if (_sync_enable) _write_i_dx = (_read_i + delay_in_samples) % _max_delay;
 }
 
 void Delay::set_delay_dx_in_ms(float delay_in_ms)
 {
     int delay_in_samples = juce::jlimit(1, _max_delay, juce::roundToInt(delay_in_ms * _sample_rate / 1000.f));
-    _write_i_dx = (_read_i + delay_in_samples) % _max_delay;
+    _write_i_dx = _sync_enable ? _write_i_sx : (_read_i + delay_in_samples) % _max_delay;
 }
 
 void Delay::set_feedback(float feedback)
@@ -73,4 +74,9 @@ void Delay::set_feedback(float feedback)
 void Delay::set_dry_wet(float dry_wet)
 {
     _dry_wet = juce::jlimit(0.f, 1.f, dry_wet);
+}
+
+void Delay::enable_sync(bool enable)
+{
+    _sync_enable = enable;
 }
