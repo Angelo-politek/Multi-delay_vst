@@ -35,7 +35,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
 
     layout.add(std::make_unique<juce::AudioParameterBool>("sync-enable", "Sync", false));
     layout.add(std::make_unique<juce::AudioParameterFloat>(
-        "delay-sx", "Delay Sx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
+        "delay-sx", "Delay Sx/Master", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(val) + juce::String(" ms"); },
         [](juce::String str) -> float
         {
@@ -75,12 +75,10 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float n
     if (id == "delay-sx")
     {
         delay.set_delay_sx_in_ms(newValue);
-        if (delay._sync_enable)delay.set_delay_dx_in_ms(newValue);
     }
     if (id == "delay-dx")
     {
         delay.set_delay_dx_in_ms(newValue);
-        if (delay._sync_enable)delay.set_delay_sx_in_ms(newValue);
     }
     
     else if (id == "sync-enable")
