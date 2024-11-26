@@ -16,6 +16,10 @@ parameters{*this, nullptr, juce::Identifier("parameters"), createParameterLayout
     parameters.addParameterListener("delay-dx", this);
     parameters.addParameterListener("feedback", this);
     parameters.addParameterListener("dry-wet", this);
+    parameters.addParameterListener("sync-enable", this);
+    parameters.addParameterListener("delay-mode", this);
+    parameters.addParameterListener("pingpong-mode", this);
+
 }
 
 AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
@@ -24,12 +28,25 @@ AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
     parameters.removeParameterListener("delay-dx", this);
     parameters.removeParameterListener("feedback", this);
     parameters.removeParameterListener("dry-wet", this);
+    parameters.removeParameterListener("sync-enable", this);
+    parameters.removeParameterListener("delay-mode", this);
+    parameters.removeParameterListener("pingpong-mode", this);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::createParameterLayout()
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
 
+    layout.add(std::make_unique<juce::AudioParameterChoice>("delay-mode", "Delay Mode", juce::StringArray({ "feedback", "pingpong"}), 0));
+    layout.add(std::make_unique<juce::AudioParameterChoice>("pingpong-mode", "Pingpong Mode", juce::StringArray({ "center", "left", "right" }), 0));
+    layout.add(std::make_unique<juce::AudioParameterBool>("sync-enable", "Sync", false));
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "delay-sx", "Delay Sx/Master", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
+        { return juce::String(val) + juce::String(" ms"); },
+        [](juce::String str) -> float
+        {
+            return str.getFloatValue();
+        }));
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "delay-dx", "Delay Dx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(val) + juce::String(" ms"); },
@@ -37,14 +54,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
         {
             return str.getFloatValue();
         }));
-    layout.add(std::make_unique<juce::AudioParameterFloat>(
-        "delay-sx", "Delay Sx", juce::NormalisableRange<float>(0.0f, 500.0f, 0.1f), 100.0f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
-        { return juce::String(val) + juce::String(" ms"); },
-        [](juce::String str) -> float
-        {
-            return str.getFloatValue();
-        }));
-    
+
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "feedback", "Feedback", juce::NormalisableRange<float>(0.0f, juce::Decibels::decibelsToGain<float>(0.0f), 0.0005f, 0.4f), 0.1f, juce::String{}, juce::AudioProcessorParameter::Category::genericParameter, [](float val, int) -> juce::String
         { return juce::String(juce::Decibels::gainToDecibels(val)) + juce::String(" dB"); },
@@ -59,6 +69,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
         {
             return val.getIntValue();
         }));
+
 
     return layout;
 }
@@ -75,7 +86,19 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float n
     {
         delay.set_delay_dx_in_ms(newValue);
     }
-
+    
+    else if (id == "sync-enable")
+    {
+        delay.enable_sync(static_cast<int>(newValue));
+    }
+    else if (id == "delay-mode")
+    {
+        delay.set_delay_mode(static_cast<int>(newValue));
+    }
+    else if (id == "pingpong-mode")
+    {
+        delay.set_pingpong_mode(static_cast<int>(newValue));
+    }
     else if (id == "feedback")
     {
         delay.set_feedback(newValue);
@@ -164,11 +187,18 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
 
     delay.prepare(sampleRate, samplesPerBlock);
 
+    delay.enable_sync(static_cast<int>(*parameters.getRawParameterValue("sync-enable")));
+    delay.set_delay_mode(static_cast<int>(*parameters.getRawParameterValue("delay-mode")));
+    delay.set_pingpong_mode(static_cast<int>(*parameters.getRawParameterValue("pingpong-mode")));
+
     delay.set_delay_dx_in_ms(*parameters.getRawParameterValue("delay-dx"));
     delay.set_delay_sx_in_ms(*parameters.getRawParameterValue("delay-sx"));
 
     delay.set_feedback(*parameters.getRawParameterValue("feedback"));
     delay.set_dry_wet(*parameters.getRawParameterValue("dry-wet") / 100);
+
+    
+
 }
 
 void AudioPluginAudioProcessor::releaseResources()
