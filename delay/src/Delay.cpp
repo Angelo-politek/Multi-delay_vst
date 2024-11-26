@@ -56,22 +56,22 @@ void Delay::process(juce::AudioBuffer<float> &buffer)
             {
             case Mode_clr::mode_center:
             {
-                left_delay[_write_i] = left_sample + right_delay_sample * _feedback;
-                right_delay[_write_i] = right_sample + left_delay_sample * _feedback;
+                left_delay[_write_i_sx] = (out_left + out_right) / 2 + out_right_delay * _feedback;
+                right_delay[_write_i_dx] = (out_left + out_right) / 2 + out_left_delay * _feedback;
             }
             break;
 
             case Mode_clr::mode_left:
             {
-                left_delay[_write_i] = (left_sample + right_sample) / 2 + right_delay_sample * _feedback;
-                right_delay[_write_i] = left_delay_sample * _feedback;
+                left_delay[_write_i_sx] = (out_left + out_right) / 2 + out_right_delay * _feedback;
+                right_delay[_write_i_dx] = out_left_delay * _feedback;
             }
             break;
 
             case Mode_clr::mode_right:
             {
-                left_delay[_write_i] = right_delay_sample * _feedback;
-                right_delay[_write_i] = (left_sample + right_sample) / 2 + left_delay_sample * _feedback;
+                left_delay[_write_i_sx] = out_right_delay * _feedback;
+                right_delay[_write_i_dx] = (out_left + out_right) / 2 + out_left_delay * _feedback;
             }
             break;
             }
