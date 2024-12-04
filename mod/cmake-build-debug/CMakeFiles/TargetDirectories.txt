@@ -1,0 +1,8 @@
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/LFO.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/LFO_All.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/LFO_Standalone.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/LFO_rc_lib.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/LFO_VST3.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/juce_vst3_helper.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/39351/CLionProjects/LFO_v1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
