@@ -1,12 +1,12 @@
 #pragma once
 
-#include "LFO.h"
-#include "pan.h"
-#include "Delay.h"
-#include <juce_audio_processors/juce_audio_processors.h>
+#include "LFO.h"     // Classe LFO
+#include "pan.h"     // Classe Pan
+#include "Delay.h"   // Classe Delay
+#include <juce_audio_processors/juce_audio_processors.h>  // Libreria JUCE
 
 //==============================================================================
-class AudioPluginAudioProcessor : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener
+class AudioPluginAudioProcessor : public juce::AudioProcessor, public juce::AudioProcessorValueTreeState::Listener  // juce::AudioProcessorValueTreeState::Listener per gestire i cambiamenti dei parametri
 {
 public:
     //==============================================================================
@@ -47,12 +47,12 @@ public:
 
 private:
     // We expose these parameters
-    juce::AudioProcessorValueTreeState parameters;
-    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
-    void parameterChanged (const juce::String& parameterID, float newValue);
-    LFO lfo;
-    Pan pan;
-    Delay delay;
+    juce::AudioProcessorValueTreeState parameters;                                               // Oggetto juce::AudioProcessorValueTreeState per gestire i parametri
+    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();                 // Metodo per creare il layout dei parametri
+    void parameterChanged (const juce::String& parameterID, float newValue);                     // Metodo per gestire i cambiamenti dei parametri
+    LFO lfo;                                                                                     // Oggetto LFO
+    Pan pan;                                                                                     // Oggetto Pan
+    Delay delay;                                                                                 // Oggetto Delay
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(AudioPluginAudioProcessor)

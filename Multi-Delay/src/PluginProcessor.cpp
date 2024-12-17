@@ -10,7 +10,7 @@ AudioPluginAudioProcessor::AudioPluginAudioProcessor() : AudioProcessor(BusesPro
 #endif
 ),
                                                          parameters{*this, nullptr, juce::Identifier("parameters"), createParameterLayout()}
-{
+{   // Parametri dell'interfaccia grafica
     // Delay Parameters
     parameters.addParameterListener("delay-sx", this);
     parameters.addParameterListener("delay-dx", this);
@@ -19,10 +19,8 @@ AudioPluginAudioProcessor::AudioPluginAudioProcessor() : AudioProcessor(BusesPro
     parameters.addParameterListener("sync-enable", this);
     parameters.addParameterListener("delay-mode", this);
     parameters.addParameterListener("pingpong-mode", this);
-
     // Pan Parameters
     parameters.addParameterListener("pan", this);
-
     // LFO Parameters
     parameters.addParameterListener("rate", this);
     parameters.addParameterListener("amount", this);
@@ -30,8 +28,8 @@ AudioPluginAudioProcessor::AudioPluginAudioProcessor() : AudioProcessor(BusesPro
 }
 
 
-AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
-{
+AudioPluginAudioProcessor::~AudioPluginAudioProcessor()    // Distruttore dell'oggetto AudioPluginAudioProcessor
+{   // Rimozione dei parametri
     parameters.removeParameterListener("delay-sx", this);
     parameters.removeParameterListener("delay-dx", this);
     parameters.removeParameterListener("feedback", this);
@@ -45,11 +43,9 @@ AudioPluginAudioProcessor::~AudioPluginAudioProcessor()
     parameters.removeParameterListener("shape", this);
 }
 
-juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::createParameterLayout()
+juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::createParameterLayout()  // Metodo per creare il layout dei parametri
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
-
-
     // Delay
     layout.add(std::make_unique<juce::AudioParameterChoice>("delay-mode", "Delay Mode", juce::StringArray({ "feedback", "pingpong"}), 0));
     layout.add(std::make_unique<juce::AudioParameterChoice>("pingpong-mode", "Pingpong Mode", juce::StringArray({ "center", "left", "right" }), 0));
@@ -114,7 +110,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout AudioPluginAudioProcessor::c
     return layout;
 }
 
-void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float newValue)
+void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float newValue)  // Metodo per gestire i cambiamenti dei parametri
 {
     juce::ignoreUnused(id, newValue);
 
@@ -160,11 +156,6 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float n
     {
         lfo.set_shape(static_cast<int>(newValue));
     }
-    /*
-    if (id == "pan")
-    { 
-        pan.set_pan(newValue); // Set pan value
-    }*/
 }
 
 //==============================================================================
@@ -244,7 +235,7 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
     juce::ignoreUnused(sampleRate, samplesPerBlock);
 
     delay.prepare(sampleRate, samplesPerBlock);
-
+/*
     delay.enable_sync(static_cast<int>(*parameters.getRawParameterValue("sync-enable")));
     delay.set_delay_mode(static_cast<int>(*parameters.getRawParameterValue("delay-mode")));
     delay.set_pingpong_mode(static_cast<int>(*parameters.getRawParameterValue("pingpong-mode")));
@@ -257,9 +248,8 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
 
     lfo.set_rate(*parameters.getRawParameterValue("rate"));
     lfo.set_shape(static_cast<int>(*parameters.getRawParameterValue("shape")));
-    lfo.set_amount(*parameters.getRawParameterValue("amount"));
+    lfo.set_amount(*parameters.getRawParameterValue("amount"));*/
 
-    pan.prepare(sampleRate, samplesPerBlock);
 
 
 }
@@ -316,20 +306,19 @@ void AudioPluginAudioProcessor::processBlock(juce::AudioBuffer<float> &buffer,
         buffer.clear(i, 0, buffer.getNumSamples());
 
     // TODO: add your logic
-    auto sampleRate = getSampleRate();
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    auto sampleRate = getSampleRate();                                                      // Ottiene il sample rate
+    for (int channel = 0; channel < totalNumInputChannels; ++channel)                       // Per ogni canale
     {
-        auto *channelData = buffer.getWritePointer(channel);
+        auto *channelData = buffer.getWritePointer(channel);                                // Ottiene il puntatore al canale
 
-        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)                     // Per ogni campione
         {
-            // channelData[sample] = channelData[sample] * 0.5f;
-            float lfoValue = (lfo.getNextValue(sampleRate)); 
-            pan.set_pan(*parameters.getRawParameterValue("pan") + lfoValue); // Set pan value
+            float lfoValue = (lfo.getNextValue(sampleRate));                                // Ottiene il valore successivo dell'LFO
+            pan.set_pan(*parameters.getRawParameterValue("pan") + lfoValue);                // Imposta il panning in base al parametro pan e al valore dell'LFO
         }
     }
-    pan.process(buffer);
-    delay.process(buffer);
+    pan.process(buffer);                                                                    // Applica il panning al buffer
+    delay.process(buffer);                                                                  // Applica l'effetto delay al buffer
     
     
 
