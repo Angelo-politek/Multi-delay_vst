@@ -235,7 +235,7 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
     juce::ignoreUnused(sampleRate, samplesPerBlock);
 
     delay.prepare(sampleRate, samplesPerBlock);
-/*
+
     delay.enable_sync(static_cast<int>(*parameters.getRawParameterValue("sync-enable")));
     delay.set_delay_mode(static_cast<int>(*parameters.getRawParameterValue("delay-mode")));
     delay.set_pingpong_mode(static_cast<int>(*parameters.getRawParameterValue("pingpong-mode")));
@@ -248,7 +248,7 @@ void AudioPluginAudioProcessor::prepareToPlay(double sampleRate, int samplesPerB
 
     lfo.set_rate(*parameters.getRawParameterValue("rate"));
     lfo.set_shape(static_cast<int>(*parameters.getRawParameterValue("shape")));
-    lfo.set_amount(*parameters.getRawParameterValue("amount"));*/
+    lfo.set_amount(*parameters.getRawParameterValue("amount"));
 
 
 
