@@ -1,8 +1,0 @@
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/Delay.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/Delay_All.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/Delay_Standalone.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/Delay_rc_lib.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/Delay_VST3.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/juce_vst3_helper.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/39351/Documents/GitHub/Multi-delay_vst/delay/cmake-build-debug/CMakeFiles/rebuild_cache.dir
