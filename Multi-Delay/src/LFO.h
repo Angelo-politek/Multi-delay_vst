@@ -10,7 +10,7 @@
 //      - set_amount(float amount) per l'ampiezza
 // Per ottenere il valore successivo della forma d'onda si utilizza il metodo:
 //      - getNextValue(double sampleRate) che prende in input il sample rate del progetto e restituisce il valore successivo della forma d'onda
-/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 
 #ifndef TEMPLATE_LFO_H
