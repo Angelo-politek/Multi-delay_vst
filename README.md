@@ -1,6 +1,6 @@
 # Multi-Delay VST Plugin
 
-A multi-delay VST plugin for audio processing. This plugin allows users to apply delay effect and panning modulation to audio signals, creating complex echo and ambiance effects.
+A simple delay VST plugin for audio processing. This plugin allows users to apply delay effect and panning modulation to audio signals, creating complex echo and ambiance effects.
 
 ## Features
 - Feedback delay and ping pong delay 
