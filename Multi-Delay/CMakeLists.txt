@@ -23,7 +23,7 @@ cmake_minimum_required(VERSION 3.22)
 # `project()` command. `project()` sets up some helpful variables that describe source/binary
 # directories, and the current project version. This is a standard CMake command.
 
-project("MultiDelay" VERSION 1.0.0)
+project("DaisyDelay" VERSION 1.0.0)
 
 # Specify the standard
 set(CMAKE_CXX_STANDARD 17)
@@ -37,6 +37,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
 # or
 # add_subdirectory(JUCE)                    # If you've put JUCE in a subdirectory called JUCE
+
+# Add DaisySP submodule
+add_subdirectory(libs/DaisySP)
 
 # If you are building a VST2 or AAX plugin, CMake needs to be told where to find these SDKs on your
 # system. This setup should be done before calling `juce_add_plugin`.
@@ -61,12 +64,12 @@ juce_add_plugin(${PROJECT_NAME}
     # NEEDS_MIDI_INPUT TRUE/FALSE               # Does the plugin need midi input?
     # NEEDS_MIDI_OUTPUT TRUE/FALSE              # Does the plugin need midi output?
     # IS_MIDI_EFFECT TRUE/FALSE                 # Is this plugin a MIDI effect?
-    BUNDLE_ID "com.multi.delay"
+    BUNDLE_ID "com.daisy.delay"
     EDITOR_WANTS_KEYBOARD_FOCUS FALSE            # Does the editor need keyboard focus?
     COPY_PLUGIN_AFTER_BUILD TRUE                # Should the plugin be installed to a default location after building?
     VST3_AUTO_MANIFEST TRUE
-    PLUGIN_MANUFACTURER_CODE Team              # A four-character manufacturer id with at least one upper-case character
-    PLUGIN_CODE Mdel                            # A unique four-character plugin id with exactly one upper-case character
+    PLUGIN_MANUFACTURER_CODE AnTd              # A four-character manufacturer id with at least one upper-case character
+    PLUGIN_CODE Ddel                            # A unique four-character plugin id with exactly one upper-case character
                                                  # GarageBand 10.3 requires the first letter to be upper-case, and the remaining letters to be lower-case
     FORMATS VST3 Standalone                  # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
     VST3_CATEGORIES Fx Tools
@@ -134,6 +137,7 @@ target_link_libraries(${PROJECT_NAME}
         # AudioPluginData           # If we'd created a binary data target, we'd link to it here
         # juce::juce_dsp
         juce::juce_audio_utils
+        DaisySP
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
