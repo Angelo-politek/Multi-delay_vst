@@ -1,9 +1,9 @@
-# Multi-Delay VST Plugin
+# DaisyDelay VST Plugin
 
-A simple delay VST plugin for audio processing. This plugin allows users to apply delay effect and panning modulation to audio signals, creating complex echo and ambiance effects.
+A simple delay VST plugin for audio processing. This plugin allows users to apply delay effect and panning modulation to audio signals, creating complex echo and ambiance effects. The plugin utilizes DaisySP library functions for efficient digital signal processing.
 
 ## Features
-- Feedback delay and ping pong delay 
+- Feedback delay and ping pong delay using DaisySP delay lines
 - Adjustable delay time, feedback, and mix levels
 - Panning modulation with LFO
 - Simple user interface
@@ -18,6 +18,7 @@ A simple delay VST plugin for audio processing. This plugin allows users to appl
 - CMake
 - Git
 
+
 ### Steps
 
 1. **Clone the Repository**
@@ -30,6 +31,7 @@ A simple delay VST plugin for audio processing. This plugin allows users to appl
 
     - Download and install the [JUCE](https://juce.com/) framework.
     - Download the VST SDK and note the installation path.
+.
 
 3. **Configure the Project**
 
@@ -60,5 +62,4 @@ A simple delay VST plugin for audio processing. This plugin allows users to appl
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
-
 

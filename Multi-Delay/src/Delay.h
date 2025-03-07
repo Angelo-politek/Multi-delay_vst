@@ -28,7 +28,12 @@
 #ifndef __DELAY_HPP__
 #define __DELAY_HPP__
 
-#include <juce_audio_basics/juce_audio_basics.h>                                // Libreria JUCE
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <juce_audio_basics/juce_audio_basics.h>
+#include <memory>
+#include "../libs/DaisySP/Source/daisysp.h"
+
 
 class Delay
 {
@@ -47,8 +52,8 @@ public:
     };
 
 private:
-    juce::AudioBuffer<float> _delay;                                            // Buffer circolare per il delay di tipo juce::AudioBuffer<float>
-    int _read_i, _write_i_sx, _write_i_dx;                                      // Indici di lettura e scrittura per i canali sinistro e destro
+    std::unique_ptr<daisysp::DelayLine<float, 192000>> _delay_left;
+    std::unique_ptr<daisysp::DelayLine<float, 192000>> _delay_right;
 
     double _sample_rate;                                                        // Sample rate del progetto
 
@@ -59,6 +64,9 @@ private:
     
     Mode_clr _mode_pingpong;                                                    // Modalità del delay pingpong
     Mode _mode_delay;                                                           // Modalità del delay
+
+    juce::LinearSmoothedValue<float> _smooth_delay_left;
+    juce::LinearSmoothedValue<float> _smooth_delay_right;
 
 public:
     Delay();                                                                    // Costruttore dell'oggetto Delay

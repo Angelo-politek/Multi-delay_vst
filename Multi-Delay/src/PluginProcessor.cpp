@@ -118,14 +118,13 @@ void AudioPluginAudioProcessor::parameterChanged(const juce::String &id, float n
     {
         delay.set_delay_sx_in_ms(newValue);
     }
-    if (id == "delay-dx")
+    else if (id == "delay-dx")
     {
         delay.set_delay_dx_in_ms(newValue);
     }
-
     else if (id == "sync-enable")
     {
-        delay.enable_sync(static_cast<int>(newValue));
+        delay.enable_sync(newValue >= 0.5f); // Correzione qui: convertiamo correttamente a bool
     }
     else if (id == "delay-mode")
     {
@@ -317,8 +316,8 @@ void AudioPluginAudioProcessor::processBlock(juce::AudioBuffer<float> &buffer,
             pan.set_pan(*parameters.getRawParameterValue("pan") + lfoValue);                // Imposta il panning in base al parametro pan e al valore dell'LFO
         }
     }
-    pan.process(buffer);                                                                    // Applica il panning al buffer
     delay.process(buffer);                                                                  // Applica l'effetto delay al buffer
+    pan.process(buffer);                                                                    // Applica il panning al buffer
     
     
 
